@@ -12,7 +12,10 @@ app.get('/', function (req, res) {
   res.render('es7', {message: 'impariamo la geografia', title:'fila B'});
 });
 
+// questa volta il passaggio avviene direttametne nell'url senza utilizzare compoinenti di input e form
+// notare la presenza dei : per indicare il passaggio del valore e non la action
 app.get('/:continent', function (req, res) {
+  // per prelevare il valore devo utilizare req.params invece di req.query
   var continent = req.params.continent;
   var nazioni = countries.all();
   var result = [];
@@ -21,12 +24,7 @@ app.get('/:continent', function (req, res) {
         result.push(nazione.name);
     }     
   });
-  res.render('es8', {result: result, message: 'impariamo la geografia', title:'fila B'});
-});
-
-app.get('/capitale/:nazione', function (req, res) {
-  var nazione = req.params.nazione;
-  res.render('es8bis', {capitale: countries.capital(nazione, 'name'), message: 'impariamo la geografia', title:'fila B'});
+  res.render('es6', {result: result, message: 'impariamo la geografia', title:'fila B'});
 });
 
 app.get('/continent', function (req, res) {

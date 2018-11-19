@@ -1,0 +1,15 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+  body
+    h1= message
+    form(action='continent', method='get')
+      select(name='continent')
+        option(value='Africa') Africa
+        option(value='America') America
+        option(value='Asia') Asia
+        option(value='Europe') Europa
+        option(value='Oceania') Oceania
+      br
+      input(type='submit', value='send')

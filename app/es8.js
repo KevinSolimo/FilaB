@@ -24,6 +24,8 @@ app.get('/:continent', function (req, res) {
   res.render('es8', {result: result, message: 'impariamo la geografia', title:'fila B'});
 });
 
+// in questo caso la nazione è preceduta dalla rotta /capitale epr differenziarla dalla rotta continente
+// dell'esercizio precedente
 app.get('/capitale/:nazione', function (req, res) {
   var nazione = req.params.nazione;
   res.render('es8bis', {capitale: countries.capital(nazione, 'name'), message: 'impariamo la geografia', title:'fila B'});

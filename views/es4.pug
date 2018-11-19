@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+  body
+    h1= message
+    form(action='info', method='get')
+      | inserisci la nazione:
+      input(type='text', name='nazione')
+      br
+      input(type='checkbox', name='lingua', value='de') 
+      | tedesco
+      br
+      input(type='checkbox', name='lingua', value='es') 
+      | spagnolo
+      br
+      input(type='checkbox', name='lingua', value='fr') 
+      | francese
+      br
+      input(type='checkbox', name='lingua', value='ja') 
+      | giapponese 
+      br
+      input(type='checkbox', name='lingua', value='it') 
+      | italiano 
+      br
+      input(type='submit', value='send')
+

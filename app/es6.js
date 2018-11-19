@@ -9,35 +9,23 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', function (req, res) {
-  res.render('es7', {message: 'impariamo la geografia', title:'fila B'});
-});
-
-app.get('/:continent', function (req, res) {
-  var continent = req.params.continent;
-  var nazioni = countries.all();
-  var result = [];
-  nazioni.forEach(function(nazione){
-    if (nazione.region == continent) {
-        result.push(nazione.name);
-    }     
-  });
-  res.render('es8', {result: result, message: 'impariamo la geografia', title:'fila B'});
-});
-
-app.get('/capitale/:nazione', function (req, res) {
-  var nazione = req.params.nazione;
-  res.render('es8bis', {capitale: countries.capital(nazione, 'name'), message: 'impariamo la geografia', title:'fila B'});
+  res.render('es5', {message: 'impariamo la geografia', title:'fila B'});
 });
 
 app.get('/continent', function (req, res) {
   var continent = req.query.continent;
+  // carico tutte le nazioni
   var nazioni = countries.all();
+  // preparo un vettore vuoto per mettere il risultato, cioè l'elenco delel nazioni di quel continente
   var result = [];
+  // ciclo su tutte le nazioni - prendendone una alla volta - per cercare quelle che sono nel continente selezionato
   nazioni.forEach(function(nazione){
     if (nazione.region == continent) {
+        // se la nazione appartiene a quel continente, la salvo nel vettore risultato
         result.push(nazione.name);
     }     
   });
+  // restituisco il risultato
   res.render('es6', {result: result, message: 'impariamo la geografia', title:'fila B'});
 });
 
@@ -55,9 +43,6 @@ app.get('/info', function (req, res) {
     }
   });
   res.render('es4bis', {message: 'impariamo la geografia', title:'fila B', result: result}); 
-
-  // alternativa senza switch:
-  // res.render('es3', {traduzione: countries.info(nazione, 'name').translations[lingua]}, message: 'impariamo la geografia', title:'fila B', );
 });
 
 app.listen(3000, function () {

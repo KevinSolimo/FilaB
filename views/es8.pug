@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+  body
+    h1= message
+    // ciclo su tutte le nazioni del continente selezionato
+    each res in result
+      // per ogni nazione, compongo un link che punta alla rotta capitale
+      // e a cui viene passata la nazione
+      // es. capitale/Italy
+      // come link, viene visualizzata la nazione
+      a(href='/capitale/' + res) #{res}
+      br
